@@ -1,24 +1,32 @@
 import logo from './logo.svg';
+import {useState} from 'react';
 import './App.css';
+import Img from './Img';
+
 
 function App() {
-  debugger;
+  const [currentLabel, setCurrentLabel] = useState ("Pinco Pallino");
+  const [showImg, setShowImg] = useState (false);
+  
+  const handleClick = () => {
+    console.log=('CLICCATO!');
+    setShowImg(true);
+    setCurrentLabel("Pluto");
+  }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello World
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App-header">
+        {showImg && (
+      <Img
+        label={currentLabel}
+      />
+      )} 
+        <div onClick={handleClick}>
+          CLICCAMI
+        </div>
+ 
+      </div>
     </div>
   );
 }
