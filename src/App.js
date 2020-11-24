@@ -1,32 +1,23 @@
-import logo from './logo.svg';
 import {useState} from 'react';
 import './App.css';
 import Img from './Img';
 
-
 function App() {
-  const [currentLabel, setCurrentLabel] = useState ("Pinco Pallino");
-  const [showImg, setShowImg] = useState (false);
-  
-  const handleClick = () => {
-    console.log=('CLICCATO!');
-    setShowImg(true);
-    setCurrentLabel("Pluto");
-  }
+  const [schwarzenegger, setSchwarzenegger] = useState("Commando");
   
   return (
     <div className="App">
-      <div className="App-header">
-        {showImg && (
-      <Img
-        label={currentLabel}
-      />
-      )} 
-        <div onClick={handleClick}>
-          CLICCAMI
-        </div>
- 
-      </div>
+      <header className="App-header">
+
+        <Img label="Predator"/>
+
+    <div onClick={() => setSchwarzenegger("Predator")}>
+      cliccami e deve funzionare</div>
+
+        <Img label={schwarzenegger}/>
+
+          
+        </header>
     </div>
   );
 }
